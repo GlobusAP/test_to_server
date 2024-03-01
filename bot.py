@@ -9,8 +9,6 @@ from config import Config, load_config
 
 config: Config = load_config()
 
-config: Config = load_config()
-
 redis = Redis(host='localhost')
 storage = RedisStorage(redis=redis)
 
