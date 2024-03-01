@@ -9,3 +9,5 @@ RUN adduser --disabled-password service-user
 USER service-user
 
 COPY . .
+
+CMD ["python", "-u", "bot.py"]
