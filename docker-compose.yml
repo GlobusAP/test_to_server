@@ -1,3 +1,5 @@
+version: '3.7'
+
 services:
   redis:
     image: redis:alpine
@@ -9,8 +11,7 @@ services:
     ports:
       - "6379:6379"
   bot:
-    build:
-      context: ./service
+    build: ./service
     env_file:
       - ./.env
     restart: always
