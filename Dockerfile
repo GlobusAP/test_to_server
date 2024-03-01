@@ -5,6 +5,7 @@ COPY requirements.txt requirements.txt
 
 
 RUN adduser --disabled-password service-user
+RUN pip install -r requirements.txt
 
 USER service-user
 
