@@ -1,4 +1,5 @@
 from aiogram import Bot, Dispatcher, F
+from aiogram.fsm.storage.redis import RedisStorage, Redis
 from aiogram.filters import StateFilter, CommandStart, Command
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import default_state, State, StatesGroup
@@ -8,8 +9,13 @@ from config import Config, load_config
 
 config: Config = load_config()
 
+config: Config = load_config()
+
+redis = Redis(host='localhost')
+storage = RedisStorage(redis=redis)
+
 bot = Bot(token=config.tg_bot.token)
-dp = Dispatcher()
+dp = Dispatcher(storage=storage)
 
 user_dict: dict[int, dict[str, str | int | bool]] = {}
 
