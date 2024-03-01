@@ -9,7 +9,8 @@ services:
     ports:
       - "6379:6379"
   bot:
-    build: .
+    build:
+      context: ./service
     command: python bot.py
     env_file:
       - ./.env
