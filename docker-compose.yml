@@ -11,9 +11,13 @@ services:
     ports:
       - "6379:6379"
   bot:
-    build: ./service
+    build: .
+    container_name: bot
+    command: python bot.py
     env_file:
       - ./.env
     restart: always
+    volumes:
+      - ./:/app
     depends_on:
       - redis
